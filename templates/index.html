@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+    <title>BMEN 207 Feedback</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="../static/logo.png" alt="tamu-img" class="logo">
+      {% if message %}
+      <p class="message">{{ message | safe }}</p>
+      {% endif %}
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Student's Email Address</h3>
+          <input
+          type="text"
+          name="student"
+          placeholder="johndoe@tamu.edu"
+          />
+        </div>
+        <div class="form-group">
+          <h3>Session Date</h3>
+         <input type="date" name="date" value="2021-06-01">
+       </div>
+        <!--Class Quality -->
+        <div class="form-group">
+          <h3>How was class today?</h3>
+          <input class="radioin" type="radio" name="rating" value="1">1
+          <input class="radioin" type="radio" name="rating" value="2">2
+          <input class="radioin" type="radio" name="rating" value="3">3
+          <input class="radioin" type="radio" name="rating" value="4">4
+          <input class="radioin" type="radio" name="rating" value="5">5
+          <input class="radioin" type="radio" name="rating" value="6">6
+          <input class="radioin" type="radio" name="rating" value="7">7
+          <input class="radioin" type="radio" name="rating" value="8">8
+          <input class="radioin" type="radio" name="rating" value="9">9
+          <input class="radioin" type="radio" name="rating" value="10" checked>10
+        </div>
+        <!--Class session -->
+        <div class="form-group">
+          <h3>Class Session</h3>
+          <select class="drop-down" name="lect">
+            <option value="deal">Select class session</option>
+            <option value="HNR-COMPUTING FOR BMEN 9:10AM-10AM">HNR-COMPUTING FOR BMEN 9:10AM-10AM</option>
+            <option value="HNR-COMPUTING FOR BMEN 11:30AM-12:20AM">HNR-COMPUTING FOR BMEN 11:30AM-12:20AM</option>
+            <option value="COMPUTING FOR BMEN 9:10AM-10AM">COMPUTING FOR BMEN 9:10AM-10AM</option>
+            <option value="COMPUTING FOR BMEN 11:30AM-12:20AM">COMPUTING FOR BMEN 11:30AM-12:20AM</option>
+          </select>
+          </div>
+
+          <!--Experience session -->
+          <div class="form-group">
+            <h3>Comments</h3>
+            <textarea name="comments" rows="10" cols="30" placeholder="Please write down what you liked and didn't like about this session."></textarea>
+          </div>
+
+          <!--Experience session -->
+          <div class="form-group">
+            <h3>What was the muddiest point of today's lecture?</h3>
+            <textarea name="muddiest" rows="10" cols="30" placeholder="Please write down any part of the lecture you struggled to understand and needs further explanation."></textarea>
+          </div>
+
+          <input type='submit' value="submit" class="btn"/>
+      </form>
+      <br>
+      <br>
+      <br>
+      <h6>Fall 2021</h6>
+      <h6>Texas A&M University</h6>
+    </div>
+  </body>
+</html>
